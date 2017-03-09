@@ -1,6 +1,6 @@
 # reqPackRedeemer
 
-**tl;dr** Chrome extension that automatically get REQ Pack codes out of Twitch chat during competitive Halo tournaments and redeems them at Halo.gg.
+**tl;dr** Chrome extension that automatically gets REQ Pack codes out of Twitch chat during competitive Halo tournaments and redeems them at Halo.gg.
 
 ### How do I use it?
 
