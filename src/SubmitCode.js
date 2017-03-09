@@ -8,6 +8,8 @@ ReqRedeem.submitter = function() {
     console.log('Received message: ' + msg.service);
     if (msg.service == "newCode") {      
       
+      // TODO - Replace this with logic for tournament Halo.gg redeem functionality
+      
       // set the web edit box to potential code
       document.getElementsByName('query')[0].value = msg.code;
       

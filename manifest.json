@@ -23,7 +23,7 @@
       },
       {
           "matches": ["https://www.halowaypoint.com/*"],
-          "js": ["src/jquery.min.js", "src/SubmitSearch.js"]
+          "js": ["src/jquery.min.js", "src/SubmitCode.js"]
       }
   ],
 
