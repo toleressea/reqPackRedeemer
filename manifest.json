@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  
+  "name": "REQ Pack Redeemer",
+  "description": "Checks twitch chat for talk about REQ Pack codes and submits it as a search.",
+  "version": "0.1",
+  "author": "Daniel Carcich",
+  "short_name": "RPR",
+  
+  "browser_action": {
+      "default_popup": "popup.html"
+  },
+
+  "background": {
+      "scripts": ["src/jquery.min.js", "src/background.js"],
+      "persistent": false
+  },
+  
+  "content_scripts": [
+      {
+          "matches": ["https://www.twitch.tv/*"],
+          "js": ["src/jquery.min.js", "src/ParseMessages.js"]
+      },
+      {
+          "matches": ["https://www.halowaypoint.com/*"],
+          "js": ["src/jquery.min.js", "src/SubmitSearch.js"]
+      }
+  ],
+
+  "permissions": [
+      "tabs",
+      "storage"
+  ]
+}
