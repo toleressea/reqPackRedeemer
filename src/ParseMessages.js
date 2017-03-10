@@ -25,35 +25,40 @@ ReqRedeem.parser = function() {
           var chatData = {};
           $(li).find('.message').attr("parsed", "yes");          // set flag to ignore later
           chatData.user = $(li).find('.from').prop('innerText'); // get username
+          chatData.text = $(li).find('.message').prop('innerText');
           
-          // split message text into individual words, using all special characters as delimiters
-          chatData.words = $(li).find('.message').prop('innerText').split(/\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\-|\=|\{|\}|\[|\]|\<|\>|\?|\,|\.|\/| /)
-          
-          // loop through potential code words
-          chatData.words.forEach(function(code) {
+          // case-insensitive check for chat text containing a string
+          if (chatData.text.toLowerCase().indexOf('code') >= 0) {
             
-            if (codes.indexOf(code) == -1) {
+            // split message text into individual words, using all special characters as delimiters
+            chatData.words = $(li).find('.message').prop('innerText').split(/\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\-|\=|\{|\}|\[|\]|\<|\>|\?|\,|\.|\/| /)
+            
+            // loop through potential code words
+            chatData.words.forEach(function(code) {
               
-              // not a potential code yet, check against rules
-              if ((code.length >= 8) && 
-                 (code.length <= 12) &&
-                 (code == code.toUpperCase())) {
-                // save code
-                codeUsers[code] = [chatData.user];
-                codeWeights[code] = 1; // initial weight is low
-                codes.push(code);
-              }
-            } else {
-              
-              // already a potential code
-              if (codeUsers[code].indexOf(chatData.user) == -1) {
+              if (codes.indexOf(code) == -1) {
                 
-                // new user for existing code, increase weight
-                codeWeights[code] += 1;
-                codeUsers[code].push(chatData.user);
+                // not a potential code yet, check against rules
+                if ((code.length >= 8) && 
+                   (code.length <= 12) &&
+                   (code == code.toUpperCase())) {
+                  // save code
+                  codeUsers[code] = [chatData.user];
+                  codeWeights[code] = 1; // initial weight is low
+                  codes.push(code);
+                }
+              } else {
+                
+                // already a potential code
+                if (codeUsers[code].indexOf(chatData.user) == -1) {
+                  
+                  // new user for existing code, increase weight
+                  codeWeights[code] += 1;
+                  codeUsers[code].push(chatData.user);
+                }
               }
-            }
-          });
+            });
+          }
         }
       });
       
