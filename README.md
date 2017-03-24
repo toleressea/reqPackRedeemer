@@ -12,6 +12,12 @@
    * `https://www.halowaypoint.com/`
 3. Click the extension icon and check the `Enabled` checkbox
 
+### What criteria do you use to select codes to be redeemed?
+
+* Only look at twitch messages containing the string "code", case insensitive
+* Alphanumeric, uppercase, no special characters
+* Length of the potential code must be >= 8 and <= 12
+
 ### Is this illegal in some way?
 
 I really hope not. I have reviewed all the "Terms of Use" and "Terms of Service" I can find in connection with the Halo tournaments and the Halo website, and can't find anything that suggests this would get you in trouble. That said, use at your own risk. This is a side project created for fun for personal use only.
