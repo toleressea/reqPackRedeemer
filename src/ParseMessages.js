@@ -9,7 +9,6 @@ ReqRedeem.parser = function() {
   var codes = [];       // potential codes
   var codeWeights = {}; // numeric value representing potential of code
   var codeUsers = {};   // keep track of all users suggesting the same value
-  var queue = [];
   
   // default enabled state to saved checkbox setting
   chrome.storage.sync.get({enabled:false}, function(items) {
@@ -80,8 +79,9 @@ ReqRedeem.parser = function() {
             service: "newCode", 
             code: code
           };
-          console.log('Add code to queue: ' + msg.service + ', ' + msg.code);
-          queue.push(msg)
+          console.log('Sent message: ' + msg.service + ', ' + msg.code);
+          port.postMessage(msg)
+          msg = null;    
           
           // never try the same code twice
           codeWeights[code] = 0;
@@ -92,15 +92,6 @@ ReqRedeem.parser = function() {
     }
     
   }, 1);
-  
-  setInterval(function() {
-    if (queue.length > 0) {
-      var msg = queue.shift();
-      console.log('Sent message: ' + msg.service + ', ' + msg.code);
-      port.postMessage(msg)
-      msg = null;      
-    }
-  }, Math.random() * (10000 - 5000) + 5000);
   
   chrome.extension.onMessage.addListener(function(msg, sender, response) {
     if (msg.service == "toggleEnabled") {
