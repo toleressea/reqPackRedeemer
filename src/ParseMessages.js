@@ -51,7 +51,8 @@ ReqRedeem.parser = function() {
               } else {
                 
                 // already a potential code
-                if (codeUsers[code].indexOf(chatData.user) == -1) {
+                if ((codeUsers[code].indexOf(chatData.user) == -1) && 
+                   (codeWeights[code] > 0)) {
                   
                   // new user for existing code, increase weight
                   codeWeights[code] += 1;
