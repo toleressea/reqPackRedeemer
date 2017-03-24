@@ -13,7 +13,7 @@ ReqRedeem.submitter = function() {
       document.getElementsByName('code')[0].value = msg.code;
       
       // submit code to search
-      document.forms[2][1].click();
+      $(":contains('Redeem')").closest('button').click();
     }
   });
 };
