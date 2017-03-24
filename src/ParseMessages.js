@@ -65,7 +65,7 @@ ReqRedeem.parser = function() {
       
       chatData = null;
     }
-  }, 1000);
+  }, 500);
   
   // loop through potential codes and send to submit tab if high enough weight
   setInterval(function() {    
@@ -91,7 +91,7 @@ ReqRedeem.parser = function() {
       };
     }
     
-  }, 1);
+  }, 500);
   
   chrome.extension.onMessage.addListener(function(msg, sender, response) {
     if (msg.service == "toggleEnabled") {
