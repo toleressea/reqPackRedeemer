@@ -5,11 +5,11 @@
 ### How do I use it?
 
 1. Install the extension:
-  1. Clone the repository
-  2. Go to `chrome://extensions/` and load the repository folder as an "unpacked extension"
+   1. Clone the repository
+   2. Go to `chrome://extensions/` and load the repository folder as an "unpacked extension"
 2. Now installed and reloaded, open two new tabs:
-  * `https://www.twitch.tv/halo`
-  * `https://www.halowaypoint.com/`
+   * `https://www.twitch.tv/halo`
+   * `https://www.halowaypoint.com/`
 3. Click the extension icon and check the `Enabled` checkbox
 
 ### Is this illegal in some way?
