@@ -71,7 +71,7 @@ ReqRedeem.parser = function() {
     if ((enabled) && (codes.length > 0)) {
       for (var i = 0; i < codes.length; i++) {
         code = codes[i];
-        if (codeWeights[code] >= 2) { 
+        if (codeWeights[code] >= 1) { 
         
           // weight is high enough, build a message
           var msg = {
