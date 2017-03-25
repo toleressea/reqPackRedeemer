@@ -34,7 +34,7 @@ ReqRedeem.submitter = function() {
       
       code = null;      
     }
-  }, Math.random() * (10000 - 5000) + 5000);
+  }, Math.random() * (60000 - 45000) + 45000);
 };
 
 ReqRedeem.submitter();
