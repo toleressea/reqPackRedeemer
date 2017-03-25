@@ -31,7 +31,7 @@ ReqRedeem.parser = function() {
           if (chatData.text.toLowerCase().indexOf('code') >= 0) {
             
             // split message text into individual words, using all special characters as delimiters
-            chatData.words = $(li).find('.message').prop('innerText').split(/\;|\:|\'|\"|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\-|\=|\{|\}|\[|\]|\<|\>|\?|\,|\.|\/| /)
+            chatData.words = $(li).find('.message').prop('innerText').replace(/[^a-zA-Z0-9]/g, " ").split(" ");
             // console.log('Converted "code" message from "' + chatData.text + '" to array: [' + chatData.words.join() + ']')
             
             // loop through potential code words
